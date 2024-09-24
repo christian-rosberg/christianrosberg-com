@@ -19,7 +19,7 @@ export const Hero = () => {
           transition={{ duration: 0.5 }}
         >
           <h3 className="text-secondaryColor text-sm sm:text-base  mb-6 sm:mt-32 mt-16  font-bold">
-            Discover new data flow
+            Hello!
           </h3>
         </motion.div>
         <motion.div
@@ -29,10 +29,10 @@ export const Hero = () => {
         >
           <div className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-8 md:px-20 lg:px-4">
             <h1 className="inline md:hidden">Analytics</h1>
-            <h1 className="hidden md:inline">Analytic tools suite</h1>
+            <h1 className="hidden md:inline">I'm Christian Rosberg</h1>
           </div>
           <h1 className="mt-2 sm:mt-2 text-4xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-primaryText  px-8 sm:px-20 md:px-24 lg:px-24">
-            for developers
+            Business oriented IT architect and software developer
           </h1>
         </motion.div>
         <motion.div
@@ -41,8 +41,7 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <h2 className="text-secondaryText text-sm lg:text-base xl:text-lg sm:text-base mt-10 px-12 sm:px-48 ">
-            Experience seamless business integrations and powerful insights with
-            our cutting-edge analytic tools.
+            A senior business oriented architect and developer specializing in IT architecture, software development and digitalization strategies to drive business growth. Experienced with all stages of the development cycle for dynamic digitalization projects. Well-versed in numerous programming languages including JavaScript, SQL, and C#. Strong background in product management and user experience.
           </h2>
         </motion.div>
         <motion.div
