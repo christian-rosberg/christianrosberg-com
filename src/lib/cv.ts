@@ -44,8 +44,12 @@ export function loadCV(): Promise<CV> {
   return cached;
 }
 
-/** Ongoing roles first, then most recently ended, then most recently started. */
+/**
+ * Own-company (highlighted) entries first, then ongoing roles, then most
+ * recently ended, then most recently started.
+ */
 function byEndThenStartDesc(a: ExperienceEntry, b: ExperienceEntry): number {
+  if (a.data.highlight !== b.data.highlight) return a.data.highlight ? -1 : 1;
   const endA = a.data.end ?? '9999-12';
   const endB = b.data.end ?? '9999-12';
   if (endA !== endB) return endA < endB ? 1 : -1;

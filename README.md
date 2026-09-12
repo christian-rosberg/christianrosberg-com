@@ -35,7 +35,7 @@ positions: []                       # nested roles at the same company (see uiq.
 Description in Markdown. Leave empty for no description.
 ```
 
-Entries are ordered automatically: ongoing roles first, then by end date, then by start date.
+Entries are ordered automatically: `highlight: true` entries first, then ongoing roles, then by end date, then by start date.
 Durations ("14 yrs 4 mos", "Present") are computed at build time, so they never go stale.
 
 ## Development
