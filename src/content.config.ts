@@ -59,7 +59,7 @@ const certifications = defineCollection({
     issuer: z.string(),
     issuerUrl: z.url().optional(),
     year: z.number().int().optional(),
-    /** Display order, ascending. */
+    /** Tie-breaker when years are equal or missing, ascending. */
     order: z.number().default(0),
   }),
 });

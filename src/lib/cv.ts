@@ -31,8 +31,9 @@ export function loadCV(): Promise<CV> {
 
     const experience = (await getCollection('experience')).sort(byEndThenStartDesc);
     const education = (await getCollection('education')).sort((a, b) => b.data.end - a.data.end);
+    // Newest first; entries without a year fall back to their manual `order`.
     const certifications = (await getCollection('certifications')).sort(
-      (a, b) => a.data.order - b.data.order,
+      (a, b) => (b.data.year ?? 0) - (a.data.year ?? 0) || a.data.order - b.data.order,
     );
 
     const sections = (await getCollection('sections')).sort((a, b) => a.data.order - b.data.order);
