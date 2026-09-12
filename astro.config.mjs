@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // Public origin of the site. Override with SITE_URL when moving to the custom
 // domain (e.g. SITE_URL=https://christianrosberg.com), or edit the default.
-const site = process.env.SITE_URL ?? 'https://christian-rosberg.github.io';
+const site = process.env.SITE_URL ?? 'https://christianrosberg.com';
 
 export default defineConfig({
   site,
