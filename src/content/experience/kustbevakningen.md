@@ -5,4 +5,5 @@ location: Karlskrona, Sweden
 start: 2023-10
 end: 2025-10
 parallel: true
+badge: Assignment
 ---
