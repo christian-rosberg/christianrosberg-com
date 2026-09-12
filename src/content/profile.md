@@ -38,15 +38,15 @@ footer:
 clientsLabel: Clients I have worked with
 clients:
   - name: Kustbevakningen
-    logo: ../assets/logos/kustbevakningen.webp
+    logo: ../assets/logos/kustbevakningen.png
   - name: Försäkringskassan
-    logo: ../assets/logos/forsakringskassan.webp
+    logo: ../assets/logos/forsakringskassan.png
   - name: NKT
-    logo: ../assets/logos/nkt.webp
+    logo: ../assets/logos/nkt.png
   - name: Roxtec
     logo: ../assets/logos/roxtec.webp
   - name: Milou
-    logo: ../assets/logos/milou.webp
+    logo: ../assets/logos/milou.png
 
 # ─── Experience section ──────────────────────────────────────────────────────
 experienceNote: Freelance since 2012 — green marks the years running my own company, which overlap the assignments below it.
