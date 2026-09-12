@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+
+const sections = (await getCollection('sections')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(sections.map(async (s) => ({ s, Content: (await render(s)).Content })));
+---
+
+{
+  rendered.map(({ s, Content }) => (
+    <section class="outlook" aria-labelledby={`section-${s.id}`}>
+      <h2 id={`section-${s.id}`} class="label" data-reveal>{s.data.label}</h2>
+      <div class="text" data-reveal>
+        <Content />
+      </div>
+    </section>
+  ))
+}
+
+<style>
+  .outlook {
+    padding: 0 var(--pad-x) clamp(48px, 6vw, 72px);
+  }
+  .label {
+    margin-bottom: 20px;
+  }
+  .text :global(p) {
+    font-size: clamp(17px, 1.6vw, 19px);
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 660px;
+    text-wrap: pretty;
+  }
+  .text :global(p + p) {
+    margin-top: 1em;
+  }
+</style>

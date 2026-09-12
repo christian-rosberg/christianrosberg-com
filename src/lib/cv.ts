@@ -10,12 +10,14 @@ export type ExperienceEntry = CollectionEntry<'experience'>;
 export type EducationEntry = CollectionEntry<'education'>;
 export type CertificationEntry = CollectionEntry<'certifications'>;
 export type Profile = CollectionEntry<'profile'>;
+export type SectionEntry = CollectionEntry<'sections'>;
 
 export interface CV {
   profile: Profile;
   experience: ExperienceEntry[];
   education: EducationEntry[];
   certifications: CertificationEntry[];
+  sections: SectionEntry[];
   /** Build timestamp, ISO date (YYYY-MM-DD). */
   builtOn: string;
 }
@@ -33,11 +35,14 @@ export function loadCV(): Promise<CV> {
       (a, b) => a.data.order - b.data.order,
     );
 
+    const sections = (await getCollection('sections')).sort((a, b) => a.data.order - b.data.order);
+
     return {
       profile,
       experience,
       education,
       certifications,
+      sections,
       builtOn: new Date().toISOString().slice(0, 10),
     };
   })();

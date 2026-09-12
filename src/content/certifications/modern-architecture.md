@@ -1,7 +1,7 @@
 ---
 title: Introduction to Modern Architecture
-institution: Dataföreningen Kompetens
-start: 2020
-end: 2020
+issuer: Dataföreningen Kompetens
+year: 2020
+order: 2
 ---
 Course held by Barry O'Reilly.

@@ -6,6 +6,7 @@ import ClientLogos from '../components/ClientLogos.astro';
 import Timeline from '../components/Timeline.astro';
 import SkillsCard from '../components/SkillsCard.astro';
 import EducationCard from '../components/EducationCard.astro';
+import Outlook from '../components/Outlook.astro';
 import Footer from '../components/Footer.astro';
 import { loadCV } from '../lib/cv';
 
@@ -24,6 +25,7 @@ const { Content: Lead } = await render(cv.profile);
       <SkillsCard topSkills={p.topSkills} stack={p.stack} languages={p.languages} />
       <EducationCard education={cv.education} certifications={cv.certifications} />
     </section>
+    <Outlook />
   </main>
   <Footer profile={cv.profile} />
 </Base>

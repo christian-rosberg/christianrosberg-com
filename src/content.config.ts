@@ -100,4 +100,13 @@ const profile = defineCollection({
     }),
 });
 
-export const collections = { experience, education, certifications, profile };
+/** Free-form text sections rendered between the cards and the contact footer. */
+const sections = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/sections' }),
+  schema: z.object({
+    label: z.string(),
+    order: z.number().default(0),
+  }),
+});
+
+export const collections = { experience, education, certifications, profile, sections };

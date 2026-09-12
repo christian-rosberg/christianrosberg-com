@@ -4,14 +4,14 @@ name: Christian Rosberg
 givenName: Christian
 familyName: Rosberg
 # Eyebrow line above the headline
-title: Freelance architect / Team lead / Tech lead
+title: Senior IT architect & AI adoption lead · Digitalization strategy · Independent consultant
 # The big headline (H1)
 headline: IT architecture, software development, AI and digitalization strategies.
 portrait: ../assets/portrait.webp
 
 # ─── Status bar (top of the hero) ────────────────────────────────────────────
 status:
-  left: Christian Rosberg — freelance consultant
+  left: Christian Rosberg — independent consultant
   right: Karlskrona · SE — fully booked, open to talk
 
 # ─── Company & location ──────────────────────────────────────────────────────
@@ -53,28 +53,23 @@ clients:
     logo: ../assets/logos/bth.png
 
 # ─── Experience section ──────────────────────────────────────────────────────
-experienceNote: Freelance since 2012 — green marks the years running my own company, which overlap the assignments below it.
+experienceNote: Running my own company since 2012 — green marks those years, which overlap the assignments below.
 
 # ─── Skills ──────────────────────────────────────────────────────────────────
 topSkills:
-  - Enterprise Architecture
-  - Non-Functional Requirements
-  - Stakeholder Management
-  - AI Adoption & Change Management
+  - Solution & domain architecture
+  - AI adoption & change management
+  - Digitalization strategy
+  - Stakeholder management
 stack:
-  - C#
-  - JavaScript
-  - SQL
-  - .NET
-  - ASP.NET MVC
-  - WCF
-  - EPiServer
-  - UX / Frontend
-  - Product management
   - Claude
   - GitHub Copilot
   - AI agents & skills
   - Agentic coding
+  - .NET / C#
+  - Azure
+  - SQL
+  - JavaScript
 
 # ─── Languages ───────────────────────────────────────────────────────────────
 languages:
@@ -90,7 +85,9 @@ languages:
 
 # ─── SEO ─────────────────────────────────────────────────────────────────────
 seo:
-  title: Christian Rosberg — Freelance architect, team lead, tech lead
-  description: Senior business oriented architect and developer specializing in IT architecture, software development, AI adoption and digitalization strategies. Freelance consultant based in Karlskrona, Sweden.
+  title: Christian Rosberg — Senior IT architect & AI adoption lead
+  description: Senior business-oriented IT architect and AI adoption lead specializing in solution and domain architecture, AI adoption and change management, and digitalization strategy. Independent consultant based in Karlskrona, Sweden.
 ---
-A senior, business-oriented architect and developer specializing in IT architecture, software development and digitalization strategies that drive business growth. Experienced across the whole development cycle, mainly on .NET, with a strong background in product management and user experience. Deeply engaged in AI in recent years: agentic coding with Claude and GitHub Copilot, building agents and skills, and leading the change management needed to adopt AI in development and across the business.
+I'm a senior, business-oriented IT architect who has spent twenty years working the space between users, business and technology — first as an interaction designer and UI architect, then as a developer, and for the past decade as solution and domain architect for organizations like Försäkringskassan, NKT, the Swedish Coast Guard and Roxtec.
+
+Right now most of my energy goes into AI: agentic development with Claude and GitHub Copilot, building agents and skills, and — more importantly — leading the change management an organization needs to actually adopt AI in development and across the business.

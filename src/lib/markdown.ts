@@ -3,12 +3,13 @@
  */
 import { formatShort } from './dates';
 import { dateLineOf, subtitleOf, titleOf, type CV } from './cv';
+import type { CollectionEntry } from 'astro:content';
 
 function trimBody(body: string | undefined): string {
   return (body ?? '').trim();
 }
 
-export function cvToMarkdown(cv: CV, siteUrl: string): string {
+export function cvToMarkdown(cv: CV, siteUrl: string, sections: CollectionEntry<'sections'>[] = []): string {
   const p = cv.profile.data;
   const lines: string[] = [];
 
@@ -50,7 +51,7 @@ export function cvToMarkdown(cv: CV, siteUrl: string): string {
   lines.push('');
   lines.push(p.topSkills.map((s) => `- ${s}`).join('\n'));
   lines.push('');
-  lines.push('## Stack');
+  lines.push('## Current focus');
   lines.push('');
   lines.push(p.stack.map((s) => `- ${s}`).join('\n'));
   lines.push('');
@@ -74,7 +75,7 @@ export function cvToMarkdown(cv: CV, siteUrl: string): string {
     }
   }
 
-  lines.push('## Certifications');
+  lines.push('## Certifications and training');
   lines.push('');
   for (const c of cv.certifications) {
     lines.push(`### ${c.data.title}`);
@@ -86,6 +87,13 @@ export function cvToMarkdown(cv: CV, siteUrl: string): string {
       lines.push(body);
       lines.push('');
     }
+  }
+
+  for (const s of sections) {
+    lines.push(`## ${s.data.label}`);
+    lines.push('');
+    lines.push(trimBody(s.body));
+    lines.push('');
   }
 
   lines.push('## Contact');
@@ -111,7 +119,7 @@ export function llmsIndex(cv: CV, siteUrl: string): string {
     '',
     `> ${p.seo.description}`,
     '',
-    `${p.name} is a ${p.title.toLowerCase()} running ${p.company.name} in ${p.location.city}, ${p.location.country}. ` +
+    `${p.name} is an independent IT architect and AI adoption lead running ${p.company.name} in ${p.location.city}, ${p.location.country}. ` +
       `This site is a one-page CV: experience since ${cv.experience.at(-1)?.data.start.slice(0, 4)}, education, certifications, skills, languages and contact details. ` +
       `All content is authored by ${p.name} and kept current.`,
     '',

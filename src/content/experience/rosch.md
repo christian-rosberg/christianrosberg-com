@@ -6,4 +6,4 @@ start: 2012-06
 end: null
 highlight: true
 ---
-Specializing in software development, IT architecture and digitalization strategies to drive business growth. Assignments include Kustbevakningen and Roxtec. Also supporting organizations in adopting AI, from agentic development practices to the change management it requires.
+Independent consultancy in IT architecture, digitalization strategy and AI adoption. Assignments include Försäkringskassan, NKT, the Swedish Coast Guard and Roxtec, spanning solution and domain architecture, team leadership and hands-on development. Also supporting organizations in adopting AI — from agentic development practices to the change management it requires.

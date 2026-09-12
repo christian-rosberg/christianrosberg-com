@@ -4,7 +4,7 @@ import { cvToMarkdown } from '../lib/markdown';
 
 export const GET: APIRoute = async ({ site }) => {
   const cv = await loadCV();
-  return new Response(cvToMarkdown(cv, site!.href), {
+  return new Response(cvToMarkdown(cv, site!.href, cv.sections), {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
   });
 };
