@@ -1,5 +1,5 @@
 ---
-role: Software developer (consultant)
+role: Software developer
 org: HiQ
 start: 2008-10
 end: 2010-03
