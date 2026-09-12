@@ -88,7 +88,7 @@ languages:
 # ─── SEO ─────────────────────────────────────────────────────────────────────
 seo:
   title: Christian Rosberg — Senior IT architect & AI adoption
-  description: Senior business-oriented IT architect and AI adoption specializing in solution and domain architecture, AI adoption and change management, and digitalization strategy. Independent consultant based in Karlskrona, Sweden.
+  description: Senior business-oriented IT architect specializing in solution and domain architecture, AI adoption and change management, and digitalization strategy. Independent consultant based in Karlskrona, Sweden.
 ---
 I'm a senior, business-oriented IT architect who has spent twenty years working the space between users, business and technology — first as an interaction designer and UI architect, then as a developer, and for the past decade as solution and domain architect for organizations like Försäkringskassan, NKT, the Swedish Coast Guard and Roxtec.
 

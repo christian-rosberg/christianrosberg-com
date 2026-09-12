@@ -1,5 +1,5 @@
 ---
-role: Software architect / Team lead (consultant)
+role: Software architect (consultant)
 org: Kustbevakningen (Swedish Coast Guard)
 location: Karlskrona, Sweden
 start: 2023-10
