@@ -60,7 +60,7 @@ export function cvToMarkdown(cv: CV, siteUrl: string): string {
   for (const ed of cv.education) {
     lines.push(`### ${ed.data.title}`);
     lines.push('');
-    lines.push(`${ed.data.institution} · ${ed.data.start} — ${ed.data.end}`);
+    lines.push(`${ed.data.institution} · ${ed.data.start}${ed.data.end !== ed.data.start ? ` — ${ed.data.end}` : ''}`);
     lines.push('');
     const body = trimBody(ed.body);
     if (body) {
@@ -74,7 +74,7 @@ export function cvToMarkdown(cv: CV, siteUrl: string): string {
   for (const c of cv.certifications) {
     lines.push(`### ${c.data.title}`);
     lines.push('');
-    lines.push(c.data.issuer);
+    lines.push(c.data.year ? `${c.data.issuer} · ${c.data.year}` : c.data.issuer);
     lines.push('');
     const body = trimBody(c.body);
     if (body) {
