@@ -1,5 +1,5 @@
 ---
-role: Software developer / Interaction designer
+role: Senior Software developer / Interaction designer
 org: Milou Communication AB
 start: 2010-04
 end: 2015-08
