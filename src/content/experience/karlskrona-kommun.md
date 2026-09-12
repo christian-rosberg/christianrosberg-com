@@ -1,5 +1,5 @@
 ---
-role: Digitalization advisor (consultant)
+role: Digitalization consultant
 org: Karlskrona kommun
 location: Karlskrona, Sweden
 start: 2025-01

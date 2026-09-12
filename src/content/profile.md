@@ -45,6 +45,8 @@ clients:
     logo: ../assets/logos/nkt.png
   - name: Roxtec
     logo: ../assets/logos/roxtec.webp
+  - name: Karlskrona kommun
+    logo: ../assets/logos/karlskrona.png
   - name: Milou
     logo: ../assets/logos/milou.png
   - name: HiQ
