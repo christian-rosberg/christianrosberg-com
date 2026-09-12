@@ -21,8 +21,8 @@ const { Content: Lead } = await render(cv.profile);
     <Timeline entries={cv.experience} note={p.experienceNote} />
     <section class="cards" aria-labelledby="cards-label">
       <h2 id="cards-label" class="visually-hidden">Skills, education, certifications and languages</h2>
-      <SkillsCard topSkills={p.topSkills} stack={p.stack} />
-      <EducationCard education={cv.education} certifications={cv.certifications} languages={p.languages} />
+      <SkillsCard topSkills={p.topSkills} stack={p.stack} languages={p.languages} />
+      <EducationCard education={cv.education} certifications={cv.certifications} />
     </section>
   </main>
   <Footer profile={cv.profile} />

@@ -55,6 +55,11 @@ export function cvToMarkdown(cv: CV, siteUrl: string): string {
   lines.push(p.stack.map((s) => `- ${s}`).join('\n'));
   lines.push('');
 
+  lines.push('## Languages');
+  lines.push('');
+  lines.push(p.languages.map((l) => `- ${l.name} — ${l.level}`).join('\n'));
+  lines.push('');
+
   lines.push('## Education');
   lines.push('');
   for (const ed of cv.education) {
@@ -82,11 +87,6 @@ export function cvToMarkdown(cv: CV, siteUrl: string): string {
       lines.push('');
     }
   }
-
-  lines.push('## Languages');
-  lines.push('');
-  lines.push(p.languages.map((l) => `- ${l.name} — ${l.level}`).join('\n'));
-  lines.push('');
 
   lines.push('## Contact');
   lines.push('');

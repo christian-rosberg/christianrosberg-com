@@ -5,9 +5,8 @@ import type { CertificationEntry, EducationEntry } from '../lib/cv';
 interface Props {
   education: EducationEntry[];
   certifications: CertificationEntry[];
-  languages: { name: string; level: string; code: string }[];
 }
-const { education, certifications, languages } = Astro.props;
+const { education, certifications } = Astro.props;
 
 const eduRendered = await Promise.all(
   education.map(async (e) => ({ e, Content: e.body?.trim() ? (await render(e)).Content : null })),
@@ -68,17 +67,6 @@ const certRendered = await Promise.all(
     }
   </ul>
 
-  <h3 class="label label--next">Languages</h3>
-  <ul class="languages">
-    {
-      languages.map((l) => (
-        <li>
-          <span>{l.name}</span>
-          <span class="level">{l.level}</span>
-        </li>
-      ))
-    }
-  </ul>
 </article>
 
 <style>
@@ -112,21 +100,5 @@ const certRendered = await Promise.all(
     line-height: 1.6;
     color: var(--ink-2);
     margin-top: 8px;
-  }
-  .languages {
-    padding-top: 18px;
-    border-top: 1px solid var(--hairline);
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    font-size: 15px;
-  }
-  .languages li {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-  }
-  .level {
-    color: var(--label);
   }
 </style>

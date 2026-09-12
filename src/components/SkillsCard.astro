@@ -2,8 +2,9 @@
 interface Props {
   topSkills: string[];
   stack: string[];
+  languages: { name: string; level: string; code: string }[];
 }
-const { topSkills, stack } = Astro.props;
+const { topSkills, stack, languages } = Astro.props;
 ---
 
 <article class="card" data-reveal aria-labelledby="skills-label">
@@ -14,6 +15,17 @@ const { topSkills, stack } = Astro.props;
   <h3 class="label">Stack</h3>
   <ul class="chips">
     {stack.map((s) => <li>{s}</li>)}
+  </ul>
+  <h3 class="label label--languages">Languages</h3>
+  <ul class="languages">
+    {
+      languages.map((l) => (
+        <li>
+          <span>{l.name}</span>
+          <span class="level">{l.level}</span>
+        </li>
+      ))
+    }
   </ul>
 </article>
 
@@ -44,5 +56,24 @@ const { topSkills, stack } = Astro.props;
     border-color: var(--ink);
     background: var(--ink);
     color: #fff;
+  }
+  .label--languages {
+    margin: 28px 0 8px;
+  }
+  .languages {
+    padding-top: 18px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 15px;
+  }
+  .languages li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .level {
+    color: var(--label);
   }
 </style>
