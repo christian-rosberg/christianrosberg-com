@@ -4,7 +4,7 @@ name: Christian Rosberg
 givenName: Christian
 familyName: Rosberg
 # Eyebrow line above the headline
-title: Senior IT architect & AI adoption lead · Digitalization strategy · Independent consultant
+title: Senior IT architect & AI adoption · Digitalization strategy · Independent consultant
 # The big headline (H1)
 headline: IT architecture, software development, AI and digitalization strategies.
 portrait: ../assets/portrait.webp
@@ -87,9 +87,9 @@ languages:
 
 # ─── SEO ─────────────────────────────────────────────────────────────────────
 seo:
-  title: Christian Rosberg — Senior IT architect & AI adoption lead
-  description: Senior business-oriented IT architect and AI adoption lead specializing in solution and domain architecture, AI adoption and change management, and digitalization strategy. Independent consultant based in Karlskrona, Sweden.
+  title: Christian Rosberg — Senior IT architect & AI adoption
+  description: Senior business-oriented IT architect and AI adoption specializing in solution and domain architecture, AI adoption and change management, and digitalization strategy. Independent consultant based in Karlskrona, Sweden.
 ---
 I'm a senior, business-oriented IT architect who has spent twenty years working the space between users, business and technology — first as an interaction designer and UI architect, then as a developer, and for the past decade as solution and domain architect for organizations like Försäkringskassan, NKT, the Swedish Coast Guard and Roxtec.
 
-Right now most of my energy goes into AI: agentic development with Claude and GitHub Copilot, building agents and skills, and — more importantly — leading the change management an organization needs to actually adopt AI in development and across the business.
+Right now most of my energy goes into AI: agentic development with Claude and GitHub Copilot, building agents and skills, and — more importantly — driving the change management an organization needs to actually adopt AI in development and across the business.

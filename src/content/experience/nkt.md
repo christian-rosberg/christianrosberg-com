@@ -1,5 +1,5 @@
 ---
-role: Sr. Solution architect
+role: Senior Solution architect
 org: NKT
 location: Karlskrona, Blekinge County, Sweden
 start: 2021-12

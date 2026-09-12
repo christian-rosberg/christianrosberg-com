@@ -7,7 +7,7 @@ end: 2025-10
 parallel: true
 badge: Assignment
 positions:
-  - title: Software architect / Team lead
+  - title: Software architect
     start: 2024-10
     end: 2025-10
     description: Moved into a team lead and architect role, responsible for requirements, architecture and product management for the team's systems, as well as the team's ways of working. Acted as the bridge between business stakeholders and developers, translating operational needs into architecture and a prioritized backlog.
