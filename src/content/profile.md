@@ -12,7 +12,7 @@ portrait: ../assets/portrait.webp
 # ─── Status bar (top of the hero) ────────────────────────────────────────────
 status:
   left: Christian Rosberg — freelance consultant
-  right: Karlskrona · SE — available
+  right: Karlskrona · SE — fully booked, open to talk
 
 # ─── Company & location ──────────────────────────────────────────────────────
 company:
@@ -32,7 +32,7 @@ contact:
   linkedin: https://www.linkedin.com/in/christianrosberg
 footer:
   heading: Let's talk.
-  note: Freelance consultant — booking new assignments.
+  note: Currently fully booked — but always open to a conversation about new business opportunities or anything else.
 
 # ─── Clients (logo row) — order is display order ─────────────────────────────
 clientsLabel: Clients I have worked with

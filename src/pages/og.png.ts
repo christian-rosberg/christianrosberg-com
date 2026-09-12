@@ -55,7 +55,7 @@ export const GET: APIRoute = async ({ site }) => {
           paddingBottom: 28,
           borderBottom: '1px solid #232725',
         },
-        [el('span', {}, p.status.left), el('span', {}, p.status.right)],
+        [el('span', {}, p.status.left), el('span', {}, `${p.location.city} · ${p.location.countryCode}`)],
       ),
       el('div', { display: 'flex', flexDirection: 'column' }, [
         el(
