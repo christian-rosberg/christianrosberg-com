@@ -6,7 +6,7 @@ familyName: Rosberg
 # Eyebrow line above the headline
 title: Freelance architect / Team lead / Tech lead
 # The big headline (H1)
-headline: IT architecture, software development and digitalization strategies.
+headline: IT architecture, software development, AI and digitalization strategies.
 portrait: ../assets/portrait.webp
 
 # ─── Status bar (top of the hero) ────────────────────────────────────────────
@@ -62,6 +62,7 @@ topSkills:
   - Enterprise Architecture
   - Non-Functional Requirements
   - Stakeholder Management
+  - AI Adoption & Change Management
 stack:
   - C#
   - JavaScript
@@ -72,6 +73,10 @@ stack:
   - EPiServer
   - UX / Frontend
   - Product management
+  - Claude
+  - GitHub Copilot
+  - AI agents & skills
+  - Agentic coding
 
 # ─── Languages ───────────────────────────────────────────────────────────────
 languages:
@@ -88,6 +93,8 @@ languages:
 # ─── SEO ─────────────────────────────────────────────────────────────────────
 seo:
   title: Christian Rosberg — Freelance architect, team lead, tech lead
-  description: Senior business oriented architect and developer specializing in IT architecture, software development and digitalization strategies. Freelance consultant based in Karlskrona, Sweden.
+  description: Senior business oriented architect and developer specializing in IT architecture, software development, AI adoption and digitalization strategies. Freelance consultant based in Karlskrona, Sweden.
 ---
 A senior business oriented architect and developer specializing in IT architecture, software development and digitalization strategies to drive business growth. Experienced with all stages of the development cycle for dynamic digitalization projects. Well-versed in numerous programming languages including JavaScript, SQL, and C#. Strong background in product management and user experience.
+
+In recent years deeply engaged in AI: agentic coding and AI-assisted development with Claude and GitHub Copilot, building agents and skills, and leading the change management a business needs when it adopts AI in development and across the organization.
