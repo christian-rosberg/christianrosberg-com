@@ -91,5 +91,3 @@ seo:
   description: Senior business-oriented IT architect specializing in solution and domain architecture, AI adoption and change management, and digitalization strategy. Independent consultant based in Karlskrona, Sweden.
 ---
 I'm a senior, business-oriented IT architect who has spent twenty years working the space between users, business and technology — first as an interaction designer and UI architect, then as a developer, and for the past decade as solution and domain architect for organizations like Försäkringskassan, NKT, the Swedish Coast Guard and Roxtec.
-
-Right now most of my energy goes into AI: agentic development with Claude and GitHub Copilot, building agents and skills, and above all driving the change management needed to adopt AI across development and the business.
