@@ -1,0 +1,68 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import Timeline from '../components/Timeline.astro';
+import SkillsCard from '../components/SkillsCard.astro';
+import EducationCard from '../components/EducationCard.astro';
+import Footer from '../components/Footer.astro';
+import { loadCV } from '../lib/cv';
+
+const cv = await loadCV();
+const p = cv.profile.data;
+const { Content: Lead } = await render(cv.profile);
+---
+
+<Base title={p.seo.title} description={p.seo.description}>
+  <main>
+    <Hero profile={cv.profile} lead={Lead} />
+    <ClientLogos profile={cv.profile} />
+    <Timeline entries={cv.experience} note={p.experienceNote} />
+    <section class="cards" aria-labelledby="cards-label">
+      <h2 id="cards-label" class="visually-hidden">Skills, education, certifications and languages</h2>
+      <SkillsCard topSkills={p.topSkills} stack={p.stack} />
+      <EducationCard education={cv.education} certifications={cv.certifications} languages={p.languages} />
+    </section>
+  </main>
+  <Footer profile={cv.profile} />
+</Base>
+
+<style>
+  .cards {
+    padding: 0 var(--pad-x) clamp(48px, 6vw, 72px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+</style>
+
+<!-- Scroll reveal. Inline so it costs no extra request; ~600 bytes. -->
+<script is:inline>
+  (function () {
+    var els = [].slice.call(document.querySelectorAll('[data-reveal]'));
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var all = function () { els.forEach(function (el) { el.classList.add('is-in'); }); };
+    if (reduce || !('IntersectionObserver' in window)) return all();
+
+    var show = function (el) { el.classList.add('is-in'); io.unobserve(el); };
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting || e.boundingClientRect.top < window.innerHeight) show(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    els.forEach(function (el) { io.observe(el); });
+
+    // Safety net: nothing may ever stay stuck invisible.
+    var sweep = function () {
+      els.forEach(function (el) {
+        if (!el.classList.contains('is-in') && el.getBoundingClientRect().top < window.innerHeight) show(el);
+      });
+    };
+    window.addEventListener('scroll', sweep, { passive: true });
+    window.addEventListener('resize', sweep, { passive: true });
+    setTimeout(sweep, 400);
+    setTimeout(all, 4000);
+  })();
+</script>

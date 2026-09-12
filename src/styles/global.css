@@ -1,0 +1,121 @@
+/* ─── Design tokens (from design/README.md) ──────────────────────────────── */
+:root {
+  /* ink */
+  --ink: #101418;
+  --ink-2: #3d444b;
+  --ink-muted: #4d545c;
+  --ink-soft: #5b636b;
+  --label: #78808a;
+  --faint: #98a0a8;
+  /* surfaces */
+  --page: #f4f5f6;
+  --card: #fff;
+  --card-border: #e3e5e8;
+  --hairline: #eceef0;
+  --chip-border: #d7dbe0;
+  --rail-tail: #c8ced4;
+  /* dark band */
+  --dark: #0d0f0e;
+  --dark-text: #e6e8e5;
+  --dark-muted: #a7b0a9;
+  --dark-label: #7d867f;
+  --dark-hairline: #232725;
+  /* accent */
+  --accent-on-dark: #7fd6a8;
+  --accent: #1a7f52;
+  /* layout */
+  --pad-x: clamp(20px, 5vw, 64px);
+  /* type: --font-sans / --font-mono are injected by Astro's <Font /> */
+  --sans: var(--font-sans, 'Space Grotesk', sans-serif);
+  --mono: var(--font-mono, 'IBM Plex Mono', monospace);
+  --ease-reveal: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ─── Reset ──────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light;
+}
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--sans);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p, ul, ol, figure, address {
+  margin: 0;
+}
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+address {
+  font-style: normal;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ─── Shared type roles ──────────────────────────────────────────────────── */
+/* All-caps labels are the ONLY place the mono is used. */
+.label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--label);
+  font-weight: 400;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── Scroll reveal ──────────────────────────────────────────────────────── */
+/* Only applied once JS has run (html.js), so no-JS visitors see everything. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 620ms var(--ease-reveal),
+    transform 620ms var(--ease-reveal);
+}
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

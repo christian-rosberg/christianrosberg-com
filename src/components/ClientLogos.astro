@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+import type { Profile } from '../lib/cv';
+
+interface Props {
+  profile: Profile;
+}
+const { profile } = Astro.props;
+const { clients, clientsLabel } = profile.data;
+
+/*
+ * Every logo is drawn at its own aspect ratio and all share ONE height, so the
+ * gaps between them are equal and they never wrap. The height is
+ *   min(42px, (rowWidth − 4 gaps) / Σ ratios)
+ * Intrinsic sizes are known at build time, so this is pure CSS via container
+ * query units — no measuring script.
+ */
+const GAP = 44;
+const MAX_H = 42;
+const ratios = clients.map((c) => c.logo.width / c.logo.height);
+const sum = ratios.reduce((a, r) => a + r, 0);
+const rowStyle = `--sum:${sum.toFixed(4)};--gap:${GAP}px;--gaps:${(clients.length - 1) * GAP}px;--max-h:${MAX_H}px`;
+---
+
+<section class="clients" aria-labelledby="clients-label">
+  <h2 id="clients-label" class="label" data-reveal>{clientsLabel}</h2>
+  <ul class="row" style={rowStyle} data-reveal>
+    {
+      clients.map((c, i) => (
+        <li class="logo" style={`--r:${ratios[i].toFixed(4)}`}>
+          <Image src={c.logo} alt={c.name} densities={[1, 2]} loading="lazy" />
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .clients {
+    background: var(--card);
+    border-bottom: 1px solid var(--card-border);
+    padding: clamp(36px, 5vw, 56px) var(--pad-x);
+  }
+  .label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    margin-bottom: 28px;
+  }
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+    container-type: inline-size;
+  }
+  .logo {
+    --h: min(var(--max-h), (100cqw - var(--gaps)) / var(--sum));
+    flex: 0 0 auto;
+    height: var(--h);
+    width: calc(var(--h) * var(--r));
+  }
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(1) opacity(0.45);
+    transition: filter 260ms ease;
+  }
+  .logo img:hover {
+    filter: none;
+  }
+  /* No hover on touch devices: show the brands in colour. */
+  @media (hover: none) {
+    .logo img {
+      filter: none;
+    }
+  }
+</style>

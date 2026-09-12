@@ -1,0 +1,253 @@
+---
+import { render } from 'astro:content';
+import { formatDuration, formatLong, formatShort, inclusiveMonths } from '../lib/dates';
+import { endLabelOf, subtitleOf, titleOf, type ExperienceEntry } from '../lib/cv';
+
+interface Props {
+  entries: ExperienceEntry[];
+  note: string;
+}
+const { entries, note } = Astro.props;
+
+const rendered = await Promise.all(
+  entries.map(async (entry) => ({
+    entry,
+    Content: entry.body?.trim() ? (await render(entry)).Content : null,
+  })),
+);
+---
+
+<section class="experience" aria-labelledby="experience-label">
+  <h2 id="experience-label" class="label" data-reveal>Experience</h2>
+  <p class="note" data-reveal>{note}</p>
+
+  <ol class="timeline">
+    {
+      rendered.map(({ entry, Content }) => {
+        const d = entry.data;
+        const subtitle = subtitleOf(entry);
+        return (
+          <li class:list={['entry', { highlight: d.highlight }]} data-reveal>
+            <div class="gutter">
+              <time class="year" datetime={d.start}>{d.start.slice(0, 4)}</time>
+              <span class="end">{endLabelOf(entry)}</span>
+              <span class="rail" aria-hidden="true" />
+              <span class="dot" aria-hidden="true" />
+            </div>
+            <div class="content">
+              <div class="title-row">
+                <h3 class="role">{titleOf(entry)}</h3>
+                {d.badge && <span class="badge">{d.badge}</span>}
+              </div>
+              {subtitle && <p class="org">{subtitle}</p>}
+              <p class="dates">
+                <time datetime={d.start}>{formatLong(d.start)}</time>
+                {' — '}
+                {d.end ? <time datetime={d.end}>{formatLong(d.end)}</time> : 'Present'}
+                {' · '}
+                {formatDuration(inclusiveMonths(d.start, d.end))}
+                {d.parallel && ' · in parallel with own company'}
+              </p>
+              {Content && (
+                <div class="desc">
+                  <Content />
+                </div>
+              )}
+              {d.positions.length > 0 && (
+                <ul class="positions">
+                  {d.positions.map((pos) => (
+                    <li>
+                      <h4 class="pos-title">{pos.title}</h4>
+                      <p class="pos-dates">
+                        <time datetime={pos.start}>{formatShort(pos.start)}</time> — <time datetime={pos.end}>{formatShort(pos.end)}</time>
+                      </p>
+                      <p class="pos-desc">{pos.description}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        );
+      })
+    }
+    <li class="tail" aria-hidden="true">
+      <div class="gutter">
+        <span class="tail-bar"></span>
+        <span class="tail-dot"></span>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<style>
+  .experience {
+    padding: clamp(48px, 6vw, 72px) var(--pad-x);
+  }
+  .label {
+    margin-bottom: 8px;
+  }
+  .note {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+  .timeline {
+    display: flex;
+    flex-direction: column;
+  }
+  .entry,
+  .tail {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    column-gap: 0;
+    align-items: stretch;
+    --rail-color: var(--ink);
+  }
+  .entry.highlight {
+    --rail-color: var(--accent);
+  }
+  .gutter {
+    position: relative;
+    padding: 0 26px 0 0;
+    text-align: right;
+  }
+  .year {
+    display: block;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--rail-color);
+    padding-top: 14px;
+  }
+  .end {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--faint);
+    margin-top: 6px;
+  }
+  .rail {
+    position: absolute;
+    top: 16px;
+    bottom: 0;
+    right: -1px;
+    width: 3px;
+    background: var(--rail-color);
+  }
+  .dot {
+    position: absolute;
+    top: 16px;
+    right: -5px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--rail-color);
+    box-shadow: 0 0 0 4px var(--page);
+  }
+  .content {
+    padding: 0 0 26px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .role {
+    font-size: clamp(20px, 2.1vw, 24px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 5px 10px;
+    line-height: 1;
+  }
+  .org {
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+  .dates {
+    font-size: 12.5px;
+    color: var(--faint);
+    letter-spacing: 0.02em;
+  }
+  .desc :global(p) {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 640px;
+    margin-top: 2px;
+  }
+  .desc :global(p + p) {
+    margin-top: 0.8em;
+  }
+  .positions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+    border-left: 1px solid var(--card-border);
+    padding-left: 20px;
+  }
+  .pos-title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .pos-dates {
+    font-size: 12px;
+    color: var(--faint);
+    margin-top: 3px;
+  }
+  .pos-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin-top: 6px;
+    max-width: 600px;
+  }
+  /* trailing end of the line */
+  .tail .gutter {
+    height: 22px;
+    padding: 0;
+  }
+  .tail-bar {
+    position: absolute;
+    top: 0;
+    right: -1px;
+    width: 3px;
+    height: 12px;
+    background: var(--rail-tail);
+  }
+  .tail-dot {
+    position: absolute;
+    top: 14px;
+    right: -4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--rail-tail);
+  }
+  @media (max-width: 720px) {
+    .entry,
+    .tail {
+      grid-template-columns: 74px 1fr;
+    }
+    .gutter {
+      padding-right: 16px;
+    }
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+interface Props {
+  topSkills: string[];
+  stack: string[];
+}
+const { topSkills, stack } = Astro.props;
+---
+
+<article class="card" data-reveal aria-labelledby="skills-label">
+  <h3 id="skills-label" class="label">Top skills</h3>
+  <ul class="chips chips--filled">
+    {topSkills.map((s) => <li>{s}</li>)}
+  </ul>
+  <h3 class="label">Stack</h3>
+  <ul class="chips">
+    {stack.map((s) => <li>{s}</li>)}
+  </ul>
+</article>
+
+<style>
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    padding: clamp(24px, 3vw, 36px);
+  }
+  .label {
+    margin-bottom: 16px;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .chips + .label {
+    margin-top: 28px;
+  }
+  .chips li {
+    border: 1px solid var(--chip-border);
+    padding: 8px 15px;
+    font-size: 13px;
+    line-height: normal;
+  }
+  .chips--filled li {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: #fff;
+  }
+</style>

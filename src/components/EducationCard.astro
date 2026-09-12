@@ -1,0 +1,119 @@
+---
+import { render } from 'astro:content';
+import type { CertificationEntry, EducationEntry } from '../lib/cv';
+
+interface Props {
+  education: EducationEntry[];
+  certifications: CertificationEntry[];
+  languages: { name: string; level: string; code: string }[];
+}
+const { education, certifications, languages } = Astro.props;
+
+const eduRendered = await Promise.all(
+  education.map(async (e) => ({ e, Content: e.body?.trim() ? (await render(e)).Content : null })),
+);
+const certRendered = await Promise.all(
+  certifications.map(async (c) => ({ c, Content: c.body?.trim() ? (await render(c)).Content : null })),
+);
+---
+
+<article class="card" data-reveal aria-labelledby="education-label">
+  <h3 id="education-label" class="label">Education</h3>
+  <ul>
+    {
+      eduRendered.map(({ e, Content }) => (
+        <li class="item">
+          <p class="title">{e.data.title}</p>
+          <p class="meta">
+            {e.data.institution} · <time datetime={String(e.data.start)}>{e.data.start}</time> —{' '}
+            <time datetime={String(e.data.end)}>{e.data.end}</time>
+          </p>
+          {Content && (
+            <div class="desc">
+              <Content />
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+
+  <h3 class="label label--next">Certifications</h3>
+  <ul>
+    {
+      certRendered.map(({ c, Content }) => (
+        <li class="item">
+          <p class="title">{c.data.title}</p>
+          <p class="meta">{c.data.issuer}</p>
+          {Content && (
+            <div class="desc">
+              <Content />
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+
+  <h3 class="label label--next">Languages</h3>
+  <ul class="languages">
+    {
+      languages.map((l) => (
+        <li>
+          <span>{l.name}</span>
+          <span class="level">{l.level}</span>
+        </li>
+      ))
+    }
+  </ul>
+</article>
+
+<style>
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    padding: clamp(24px, 3vw, 36px);
+  }
+  .label {
+    margin-bottom: 8px;
+  }
+  .label--next {
+    margin-top: 28px;
+  }
+  .item {
+    padding: 18px 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .title {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .meta {
+    font-size: 13px;
+    color: var(--label);
+    margin-top: 6px;
+  }
+  .desc :global(p) {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin-top: 8px;
+  }
+  .languages {
+    padding-top: 18px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 15px;
+  }
+  .languages li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .level {
+    color: var(--label);
+  }
+</style>
