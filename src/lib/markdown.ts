@@ -21,7 +21,7 @@ export function cvToMarkdown(cv: CV, siteUrl: string): string {
   lines.push(trimBody(cv.profile.body));
   lines.push('');
 
-  lines.push('## Clients');
+  lines.push('## Selected clients and employers');
   lines.push('');
   lines.push(p.clients.map((c) => c.name).join(', ') + '.');
   lines.push('');

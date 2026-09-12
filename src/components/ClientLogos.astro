@@ -19,12 +19,26 @@ const GAP = 44;
 const MAX_H = 42;
 const ratios = clients.map((c) => c.logo.width / c.logo.height);
 const sum = ratios.reduce((a, r) => a + r, 0);
-const rowStyle = `--sum:${sum.toFixed(4)};--gap:${GAP}px;--gaps:${(clients.length - 1) * GAP}px;--max-h:${MAX_H}px`;
+const gaps = (clients.length - 1) * GAP;
+const rowStyle = `--sum:${sum.toFixed(4)};--gap:${GAP}px;--gaps:${gaps}px;--max-h:${MAX_H}px`;
+
+/*
+ * Below a certain width a single line would make the logos too small to read,
+ * so the row wraps instead. The page padding is 5vw per side in that range,
+ * so the row is 90% of the viewport; solve for the viewport where h = MIN_H.
+ */
+const MIN_SINGLE_LINE_H = 28;
+const WRAP_H = 34;
+const wrapBelow = Math.ceil((MIN_SINGLE_LINE_H * sum + gaps) / 0.9);
+const wrapCss =
+  `@media (max-width:${wrapBelow}px){` +
+  `ul[data-logo-row].row{flex-wrap:wrap;justify-content:flex-start;gap:22px 36px}` +
+  `[data-logo-row]>li.logo{--h:${WRAP_H}px}}`;
 ---
 
 <section class="clients" aria-labelledby="clients-label">
   <h2 id="clients-label" class="label" data-reveal>{clientsLabel}</h2>
-  <ul class="row" style={rowStyle} data-reveal>
+  <ul class="row" style={rowStyle} data-logo-row data-reveal>
     {
       clients.map((c, i) => (
         <li class="logo" style={`--r:${ratios[i].toFixed(4)}`}>
@@ -34,6 +48,8 @@ const rowStyle = `--sum:${sum.toFixed(4)};--gap:${GAP}px;--gaps:${(clients.lengt
     }
   </ul>
 </section>
+
+<style is:inline set:html={wrapCss}></style>
 
 <style>
   .clients {

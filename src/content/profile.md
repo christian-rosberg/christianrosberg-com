@@ -35,7 +35,7 @@ footer:
   note: Currently fully booked — but always open to a conversation about new business opportunities or anything else.
 
 # ─── Clients (logo row) — order is display order ─────────────────────────────
-clientsLabel: Clients I have worked with
+clientsLabel: Selected clients and employers
 clients:
   - name: Kustbevakningen
     logo: ../assets/logos/kustbevakningen.png
@@ -47,6 +47,12 @@ clients:
     logo: ../assets/logos/roxtec.webp
   - name: Milou
     logo: ../assets/logos/milou.png
+  - name: HiQ
+    logo: ../assets/logos/hiq.png
+  - name: UIQ Technology
+    logo: ../assets/logos/uiq.png
+  - name: Blekinge Institute of Technology
+    logo: ../assets/logos/bth.png
 
 # ─── Experience section ──────────────────────────────────────────────────────
 experienceNote: Freelance since 2012 — green marks the years running my own company, which overlap the assignments below it.
