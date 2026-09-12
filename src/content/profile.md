@@ -49,8 +49,6 @@ clients:
     logo: ../assets/logos/milou.png
   - name: HiQ
     logo: ../assets/logos/hiq.png
-  - name: UIQ Technology
-    logo: ../assets/logos/uiq.png
   - name: Blekinge Institute of Technology
     logo: ../assets/logos/bth.png
 
