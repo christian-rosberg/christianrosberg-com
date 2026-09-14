@@ -24,7 +24,7 @@ export function cvToMarkdown(cv: CV, siteUrl: string, sections: CollectionEntry<
 
   lines.push('## Selected clients and employers');
   lines.push('');
-  lines.push(p.clients.map((c) => c.name).join(', ') + '.');
+  lines.push(p.clients.map((c) => (c.url ? `[${c.name}](${c.url})` : c.name)).join(', ') + '.');
   lines.push('');
 
   lines.push('## Experience');

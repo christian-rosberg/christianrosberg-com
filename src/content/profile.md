@@ -39,20 +39,28 @@ clientsLabel: Selected clients and employers
 clients:
   - name: Kustbevakningen
     logo: ../assets/logos/kustbevakningen.png
+    url: https://www.kustbevakningen.se
   - name: Försäkringskassan
     logo: ../assets/logos/forsakringskassan.png
+    url: https://www.forsakringskassan.se
   - name: NKT
     logo: ../assets/logos/nkt.png
+    url: https://www.nkt.com
   - name: Roxtec
     logo: ../assets/logos/roxtec.webp
+    url: https://www.roxtec.com
   - name: Karlskrona kommun
     logo: ../assets/logos/karlskrona.png
+    url: https://www.karlskrona.se
   - name: Milou
     logo: ../assets/logos/milou.png
+    url: https://www.milou.se
   - name: HiQ
     logo: ../assets/logos/hiq.png
+    url: https://hiq.se
   - name: Blekinge Institute of Technology
     logo: ../assets/logos/bth.png
+    url: https://www.bth.se
 
 # ─── Experience section ──────────────────────────────────────────────────────
 experienceNote: Running my own company since 2012 — green marks those years, which overlap the assignments below.

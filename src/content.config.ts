@@ -91,7 +91,7 @@ const profile = defineCollection({
       }),
       footer: z.object({ heading: z.string(), note: z.string() }),
       clientsLabel: z.string(),
-      clients: z.array(z.object({ name: z.string(), logo: image() })),
+      clients: z.array(z.object({ name: z.string(), logo: image(), url: z.url().optional() })),
       experienceNote: z.string(),
       topSkills: z.array(z.string()),
       stack: z.array(z.string()),
