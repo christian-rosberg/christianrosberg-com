@@ -1,6 +1,7 @@
 ---
 role: Teaching Assistant
 org: Blekinge Institute of Technology
+location: Ronneby, Sweden
 start: 2000-01
 end: 2003-12
 ---

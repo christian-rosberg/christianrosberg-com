@@ -1,5 +1,5 @@
 ---
-role: Architect (consultant)
+role: Software Developer / Architect (consultant)
 org: Roxtec Group
 location: Karlskrona, Sweden
 start: 2026-01

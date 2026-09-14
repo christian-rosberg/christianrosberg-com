@@ -1,5 +1,5 @@
 ---
-role: Owner and consultant
+role: Owner and Consultant
 org: Rosch Information & Media AB
 location: Karlskrona, Sweden
 start: 2012-06

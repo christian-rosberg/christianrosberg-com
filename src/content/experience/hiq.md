@@ -1,6 +1,7 @@
 ---
-role: Software developer
+role: Software Developer
 org: HiQ
+location: Karlskrona, Sweden
 start: 2008-10
 end: 2010-03
 ---

@@ -1,6 +1,7 @@
 ---
-role: Senior Software developer / Interaction designer
+role: Senior Software Developer / Interaction Designer
 org: Milou Communication AB
+location: Karlskrona, Sweden
 start: 2010-04
 end: 2015-08
 ---

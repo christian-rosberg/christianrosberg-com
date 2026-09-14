@@ -1,6 +1,7 @@
 ---
-role: Software developer
+role: Software Developer
 org: Nockeby Tryckeri AB
+location: Kalmar, Sweden
 start: 2004-04
 end: 2005-02
 ---
