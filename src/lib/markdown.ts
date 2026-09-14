@@ -78,7 +78,7 @@ export function cvToMarkdown(cv: CV, siteUrl: string, sections: CollectionEntry<
   lines.push('## Certifications and training');
   lines.push('');
   for (const c of cv.certifications) {
-    lines.push(`### ${c.data.title}`);
+    lines.push(`### ${c.data.certificateUrl ? `[${c.data.title}](${c.data.certificateUrl})` : c.data.title}`);
     lines.push('');
     lines.push(c.data.year ? `${c.data.issuer} · ${c.data.year}` : c.data.issuer);
     lines.push('');

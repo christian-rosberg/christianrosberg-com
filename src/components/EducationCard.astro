@@ -47,7 +47,15 @@ const certRendered = await Promise.all(
     {
       certRendered.map(({ c, Content }) => (
         <li class="item">
-          <p class="title">{c.data.title}</p>
+          <p class="title">
+            {c.data.certificateUrl ? (
+              <a href={c.data.certificateUrl} target="_blank" rel="noopener noreferrer">
+                {c.data.title}
+              </a>
+            ) : (
+              c.data.title
+            )}
+          </p>
           <p class="meta">
             {c.data.issuer}
             {c.data.year && (

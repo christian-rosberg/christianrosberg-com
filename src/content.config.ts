@@ -58,6 +58,8 @@ const certifications = defineCollection({
     title: z.string(),
     issuer: z.string(),
     issuerUrl: z.url().optional(),
+    /** Link to the certificate itself, if it is public. */
+    certificateUrl: z.url().optional(),
     year: z.number().int().optional(),
     /** Tie-breaker when years are equal or missing, ascending. */
     order: z.number().default(0),

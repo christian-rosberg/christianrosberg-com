@@ -54,6 +54,7 @@ export function buildJsonLd(cv: CV, siteUrl: string, portraitUrl: string) {
         name: c.data.title,
         credentialCategory: 'certification',
         recognizedBy: { '@type': 'Organization', name: c.data.issuer },
+        ...(c.data.certificateUrl ? { url: c.data.certificateUrl } : {}),
       })),
     ],
     hasOccupation: cv.experience.map((e) => ({
